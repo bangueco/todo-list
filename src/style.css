@@ -1,0 +1,61 @@
+:root {
+  --primary-color: #31304D;
+  --secondary-color: #B6BBC4;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+}
+
+/* Sidebar */
+
+.wrapper > .sidebar {
+  background-color: var(--secondary-color);
+}
+
+.wrapper > .sidebar > .title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.wrapper > .sidebar > .projects__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.wrapper > .sidebar > .projects__container > .project {
+  padding: 8px;
+  font-size: 1.3rem;
+  width: 90%;
+  background-color: #ffffff2c;
+  border-radius: 3px;
+}
+
+.wrapper > .sidebar > .projects__container > .project:active {
+  background-color: rgb(255, 255, 255);
+}
+
+.wrapper > .sidebar > .projects__container > .project:hover {
+  cursor: pointer;
+  background-color: blanchedalmond;
+}
+
+/* Tasks Container */
+
+.wrapper > .tasks-container {
+  background-color: var(--primary-color);
+}
