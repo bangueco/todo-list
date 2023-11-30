@@ -7,8 +7,9 @@ module.exports = {
     index: './src/index.js'
   },
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   module: {
     rules: [
@@ -20,7 +21,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html'
+      filename: 'index.html',
+      template: './src/template.html'
     })
   ]
 }
