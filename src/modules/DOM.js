@@ -31,6 +31,25 @@ const newProjectDOM = (() => {
   }
 })();
 
+const selectProjectDOM = (() => {
+  const projectsContainer = document.querySelector('.projects__container');
+  const _projectNameDetail = document.querySelector('.project__name');
+  const _projectDescDetail = document.querySelector('.project__description');
+  const _addTask = document.querySelector('[data-bs-target="#tasksModal"]');
+
+  const selectProject = (e) => {
+    if (e.target.className != 'project') return;
+    _projectNameDetail.textContent = projects[e.target.dataset.projectIndex].title;
+    _projectDescDetail.textContent = projects[e.target.dataset.projectIndex].description;
+    _addTask.style.display = '';
+  }
+
+  return {
+    projectsContainer,
+    selectProject
+  }
+})();
+
 const startUpDOM = (() => {
   const initiateProjects = () => {
     fetchItemsFromLocalStorage();
@@ -44,5 +63,6 @@ const startUpDOM = (() => {
 
 export {
   newProjectDOM,
+  selectProjectDOM,
   startUpDOM
 }
