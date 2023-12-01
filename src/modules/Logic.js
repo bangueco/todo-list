@@ -19,6 +19,7 @@ const fetchItemsFromLocalStorage = () => {
 }
 
 export {
+  projects,
   createNewProject,
   saveToLocalStorage,
   fetchItemsFromLocalStorage

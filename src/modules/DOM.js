@@ -1,4 +1,4 @@
-import { createNewProject, fetchItemsFromLocalStorage, saveToLocalStorage } from "./Logic";
+import { createNewProject, fetchItemsFromLocalStorage, projects, saveToLocalStorage } from "./Logic";
 
 const newProjectDOM = (() => {
   const addProjectBtn = document.querySelector('#addProjectBtn');
@@ -8,7 +8,7 @@ const newProjectDOM = (() => {
 
   const showProjectsToContainer = () => {
     _projectsContainer.innerHTML = "";
-    fetchItemsFromLocalStorage().forEach((proj, index) => {
+    projects.forEach((proj, index) => {
       const div = document.createElement('div');
       div.classList.add('project');
       div.textContent = proj.title;
@@ -20,6 +20,7 @@ const newProjectDOM = (() => {
   const insertNewProject = () => {
     createNewProject(_projectName.value, _projectDesc.value);
     saveToLocalStorage();
+    fetchItemsFromLocalStorage();
     showProjectsToContainer();
   }
 
@@ -32,6 +33,7 @@ const newProjectDOM = (() => {
 
 const startUpDOM = (() => {
   const initiateProjects = () => {
+    fetchItemsFromLocalStorage();
     newProjectDOM.showProjectsToContainer();
   }
 
