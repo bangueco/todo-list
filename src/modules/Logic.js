@@ -1,4 +1,4 @@
-import { Project } from "./Project";
+import { Project, Task } from "./TodoConstructor";
 
 let projects = [];
 
@@ -18,9 +18,14 @@ const fetchItemsFromLocalStorage = () => {
   return projects = JSON.parse(localStorage.getItem('todo'));
 }
 
+const createNewTask = (projectIndex, name, dueDate) => {
+  projects[projectIndex].tasks.push(new Task(name, dueDate));
+}
+
 export {
   projects,
   createNewProject,
   saveToLocalStorage,
-  fetchItemsFromLocalStorage
+  fetchItemsFromLocalStorage,
+  createNewTask
 }
