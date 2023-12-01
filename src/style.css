@@ -11,6 +11,10 @@
   margin: 0;
 }
 
+body {
+  height: 100vh;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -24,7 +28,7 @@
 }
 
 .wrapper > .sidebar > .title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
 }
 
@@ -58,4 +62,35 @@
 
 .wrapper > .tasks-container {
   background-color: var(--primary-color);
+}
+
+.wrapper > .tasks-container > .project__details > .project__name {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.wrapper > .tasks-container > .project__details > .project__description {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+.wrapper > .tasks-container > .tasks__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.wrapper > .tasks-container > .tasks__container > .task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 1.3rem;
+  width: 100%;
+  background-color: #ffffff2c;
+  border-radius: 3px;
 }
