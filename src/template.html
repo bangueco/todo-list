@@ -11,16 +11,15 @@
   <div class="wrapper">
     <div class="sidebar">
       <div class="title">TODO-LIST</div>
-      <hr>
       <div class="text-center">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Add New Project
-        </button>          
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="text-end p-3">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal">+</button>          
+        </div>
+        <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Add new project</h1>
+                <h1 class="modal-title fs-5" id="projectModalLabel">Add new project</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -30,7 +29,7 @@
                 </div>
                 <div>
                   <label class="form-label" for="">Project Description</label>
-                  <input class="form-control" type="" name="projectDesc" id="projectDesc">
+                  <input class="form-control" type="text" name="projectDesc" id="projectDesc">
                 </div>
               </div>
               <div class="modal-footer">
@@ -42,10 +41,49 @@
         </div>        
       </div>
       <div class="projects__container">
+
       </div>
     </div>
-    <div class="tasks-container">
-
+    <div class="tasks-container p-3">
+      <div class="project__details">
+        <h1 class="project__name">No Project Selected</h1>
+        <p class="project__description">Please select a project to get start adding new tasks or completing new tasks!</p>
+      </div>
+      <div class="tasks">
+        <div class="text-center">
+          <div class="text-end p-3">
+            <button style="display: none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tasksModal">Add New Task</button>          
+          </div>
+          <div class="modal fade" id="tasksModal" tabindex="-1" aria-labelledby="tasksModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="tasksModalLabel">Add new project</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div>
+                    <label class="form-label" for="">Task Name</label>
+                    <input class="form-control" type="text" name="projectName" id="projectName">
+                  </div>
+                  <div>
+                    <label class="form-label" for="">Task Description</label>
+                    <input class="form-control" type="text" name="projectDesc" id="projectDesc">
+                  </div>
+                  <div>
+                    <label class="form-label" for="">Due Date</label>
+                    <input class="form-control" type="date" name="projectDesc" id="projectDesc">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" id="addTaskBtn" class="btn btn-primary" data-bs-dismiss="modal">Add tasks</button>
+                </div>
+              </div>
+            </div>
+          </div>        
+        </div>
+      </div>
     </div>
   </div>
   <script defer src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
