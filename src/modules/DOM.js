@@ -1,4 +1,4 @@
-import { createNewProject, createNewTask, fetchItemsFromLocalStorage, projects, saveToLocalStorage } from "./Logic";
+import { createNewProject, createNewTask, fetchItemsFromLocalStorage, projects, saveToLocalStorage} from "./Logic";
 
 const newProjectDOM = (() => {
   const addProjectBtn = document.querySelector('#addProjectBtn');
@@ -11,8 +11,18 @@ const newProjectDOM = (() => {
     projects.forEach((proj, index) => {
       const div = document.createElement('div');
       div.classList.add('project');
-      div.textContent = proj.title;
+      const projectTitle = document.createElement('div');
+      const deleteButton = document.createElement('button');
+      projectTitle.classList.add('title');
+      deleteButton.classList.add('deleteButton');
+      deleteButton.classList.add('btn');
+      deleteButton.classList.add('btn-danger')
+      projectTitle.textContent = proj.title;
+      deleteButton.textContent = "DEL";
       div.dataset.projectIndex = index;
+
+      div.appendChild(projectTitle);
+      div.appendChild(deleteButton);
       _projectsContainer.appendChild(div);
     });
   }
