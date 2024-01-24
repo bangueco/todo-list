@@ -101,6 +101,15 @@ body {
   align-items: center;
 }
 
+.title {
+  font-size: 1rem;
+}
+
 .deleteButton {
   font-size: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 3px;
 }
