@@ -185,11 +185,13 @@ const newTaskDom = (() => {
 
   const showTasksToContainer = () => {
     _tasksContainer.innerHTML = "";
-    projects[_addNewTaskBtn.dataset.projectIndex].tasks.forEach(proj => {
+    projects[_addNewTaskBtn.dataset.projectIndex].tasks.forEach((proj, index) => {
       const div = document.createElement('div');
       div.classList.add('task');
+      div.dataset.taskIndex = index;
       const checkbox = document.createElement('input')
       checkbox.type = 'checkbox';
+      if (proj.status === 'finished') checkbox.checked = true;
       const taskname = document.createElement('div');
       taskname.classList.add('taskName');
       taskname.textContent = proj.name;

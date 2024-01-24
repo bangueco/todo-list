@@ -47,10 +47,10 @@
         <h1 class="project__name">No Project Selected</h1>
         <p class="project__description">Please select a project to get start adding new tasks or completing new tasks!</p>
       </div>
-      <div class="tasks">
+      <div class="tasks__modal">
         <div class="text-center">
           <div class="text-end p-3">
-            <button style="display: none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tasksModal">Add New Task</button>          
+            <button style="display: none;" type="button" class="btn btn-primary" id="taskButton" data-bs-toggle="modal" data-bs-target="#tasksModal">Add New Task</button>          
           </div>
           <div class="modal fade" id="tasksModal" tabindex="-1" aria-labelledby="tasksModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -79,7 +79,7 @@
         </div>
       </div>
       <div class="tasks__container">
-        
+
       </div>
     </div>
   </div>

@@ -40,6 +40,14 @@ const deleteProject = (e) => {
   newProjectDOM.showProjectsToContainer();
 }
 
+const checkBoxToggle = (e) => {
+  const projectIndex = document.querySelector('#taskButton').dataset.projectIndex;
+  const taskIndex = e.target.parentElement.dataset.taskIndex;
+  if (e.target.checked === true) projects[projectIndex].tasks[taskIndex].status = "finished";
+  if (e.target.checked === false) projects[projectIndex].tasks[taskIndex].status = "ongoing";
+  saveToLocalStorage();
+}
+
 export {
   projects,
   createNewProject,
@@ -48,5 +56,6 @@ export {
   createNewTask,
   getProjectInfo,
   editProject,
-  deleteProject
+  deleteProject,
+  checkBoxToggle
 }

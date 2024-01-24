@@ -1,5 +1,5 @@
 import { newProjectDOM, newTaskDom, selectProjectDOM } from "./DOM"
-import {deleteProject, editProject, getProjectInfo} from './Logic'
+import {checkBoxToggle, deleteProject, editProject, getProjectInfo} from './Logic'
 
 const attachEventListeners = () => {
   newProjectDOM.addProjectBtn.addEventListener('click', newProjectDOM.insertNewProject);
@@ -12,6 +12,10 @@ const attachEventListeners = () => {
   })
   document.querySelector('#editModal').addEventListener('click', e => {
     if (e.target.id === "editButtonProject") return editProject(e);
+  })
+  document.querySelector('.tasks__container').addEventListener('click', e => {
+    if (e.target.tagName === "INPUT") return checkBoxToggle(e);
+    return
   })
 }
 
