@@ -139,11 +139,19 @@ const newProjectDOM = (() => {
     _projectsContainer.appendChild(modal);
   }
 
+  const setEditProjectModalInfo = (e) => {
+    document.querySelector('#editProjectName').value = projects[e.target.parentElement.parentElement.dataset.projectIndex].title;
+    document.querySelector('#editProjectDescription').value = projects[e.target.parentElement.parentElement.dataset.projectIndex].description
+    document.querySelector('#editButtonProject').dataset.index = e.target.parentElement.parentElement.dataset.projectIndex;
+    return;
+  }
+
   return {
     addProjectBtn,
     showProjectsToContainer,
     insertNewProject,
-    appendEditButtonModal
+    appendEditButtonModal,
+    setEditProjectModalInfo
   }
 })();
 
