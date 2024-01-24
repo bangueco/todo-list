@@ -17,8 +17,8 @@ const fetchItemsFromLocalStorage = () => {
   return projects = JSON.parse(localStorage.getItem('todo'));
 }
 
-const createNewTask = (projectIndex, name, dueDate) => {
-  projects[projectIndex].tasks.push(new Task(name, dueDate));
+const createNewTask = (projectIndex, name, dueDate, status) => {
+  projects[projectIndex].tasks.push(new Task(name, dueDate, status));
 }
 
 const getProjectInfo = (e) => {

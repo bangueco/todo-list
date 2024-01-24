@@ -178,7 +178,6 @@ const selectProjectDOM = (() => {
 
 const newTaskDom = (() => {
   const addTaskBtn = document.querySelector('#addTaskBtn');
-  const _project = document.querySelector('.project');
   const _addNewTaskBtn = document.querySelector('[data-bs-target="#tasksModal"]');
   const _taskName = document.querySelector('#taskName');
   const _TaskDueDate = document.querySelector('#taskDueDate');
@@ -206,7 +205,7 @@ const newTaskDom = (() => {
   }
 
   const insertNewTask = () => {
-    createNewTask(_addNewTaskBtn.dataset.projectIndex, _taskName.value, _TaskDueDate.value);
+    createNewTask(_addNewTaskBtn.dataset.projectIndex, _taskName.value, _TaskDueDate.value, 'ongoing');
     saveToLocalStorage();
     fetchItemsFromLocalStorage();
     showTasksToContainer();

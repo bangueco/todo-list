@@ -7,9 +7,10 @@ class Project {
 }
 
 class Task{
-  constructor(name, dueDate) {
+  constructor(name, dueDate, status) {
     this.name = name;
     this.dueDate = dueDate;
+    this.status = status;
   }
 }
 
