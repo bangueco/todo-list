@@ -183,25 +183,52 @@ const newTaskDom = (() => {
   const _TaskDueDate = document.querySelector('#taskDueDate');
   const _tasksContainer = document.querySelector('.tasks__container');
 
+  const _createRowLabels = () => {
+    const rowNamesContainer = document.createElement('div');
+    const taskStatus = document.createElement('div');
+    const taskName = document.createElement('div');
+    const taskDueDate = document.createElement('div');
+
+    rowNamesContainer.classList.add('row_label');
+
+    // Set names on row elements
+    taskStatus.textContent = "Status";
+    taskName.textContent = "Task Name";
+    taskDueDate.textContent = "Due Date";
+
+    // Appending elements
+    rowNamesContainer.appendChild(taskStatus);
+    rowNamesContainer.appendChild(taskName);
+    rowNamesContainer.appendChild(taskDueDate);
+    _tasksContainer.appendChild(rowNamesContainer);
+  }
+
   const showTasksToContainer = () => {
     _tasksContainer.innerHTML = "";
+    _createRowLabels();
     projects[_addNewTaskBtn.dataset.projectIndex].tasks.forEach((proj, index) => {
       const div = document.createElement('div');
       div.classList.add('task');
       div.dataset.taskIndex = index;
+      const taskStatusContainer = document.createElement('div');
       const checkbox = document.createElement('input')
+      taskStatusContainer.appendChild(checkbox);
       checkbox.type = 'checkbox';
       if (proj.status === 'finished') checkbox.checked = true;
+      const taskNameContainer = document.createElement('div');
       const taskname = document.createElement('div');
+      taskNameContainer.appendChild(taskname);
       taskname.classList.add('taskName');
       taskname.textContent = proj.name;
+      const taskDueDateContainer = document.createElement('div');
       const dueDate = document.createElement('div');
+      taskDueDateContainer.appendChild(dueDate);
       dueDate.classList.add('dueDate');
       dueDate.textContent = proj.dueDate;
 
-      div.appendChild(checkbox);
-      div.appendChild(taskname);
-      div.appendChild(dueDate);
+      div.appendChild(taskStatusContainer);
+      div.appendChild(taskNameContainer);
+      div.appendChild(taskDueDateContainer);
       _tasksContainer.appendChild(div);
     })
   }

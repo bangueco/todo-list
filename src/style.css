@@ -84,15 +84,30 @@ body {
   width: 100%;
 }
 
-.wrapper > .tasks-container > .tasks__container > .task {
+.wrapper > .tasks-container > .tasks__container > .task, .row_label {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
-  font-size: 1.3rem;
   width: 100%;
   background-color: #ffffff2c;
   border-radius: 3px;
+  flex: 1;
+}
+
+.wrapper > .tasks-container > .tasks__container > .task > div {
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.wrapper > .tasks-container > .tasks__container > .row_label {
+  background-color: bisque;
+}
+
+.wrapper > .tasks-container > .tasks__container > .row_label > div {
+  font-size: 1.6rem;
+  width: 100%;
+  text-align: center;
 }
 
 .project {
