@@ -177,6 +177,7 @@ const selectProjectDOM = (() => {
 })();
 
 const newTaskDom = (() => {
+  const taskButton = document.querySelector('#taskButton');
   const addTaskBtn = document.querySelector('#addTaskBtn');
   const _addNewTaskBtn = document.querySelector('[data-bs-target="#tasksModal"]');
   const _taskName = document.querySelector('#taskName');
@@ -249,6 +250,28 @@ const newTaskDom = (() => {
       div.appendChild(taskDueDateContainer);
       div.appendChild(taskActionsContainer);
       _tasksContainer.appendChild(div);
+
+      /* 
+        Adding event listeners on buttons here because i can't load it on EventListener.js file
+        because the class doesn't exists yet when page loads so the solution i came is to add event
+        listeners when this tasks loads instead of attaching event listeners on existing elements
+        when page loads in index.js
+       */
+
+      editTask.dataset.button = "edit";
+      editTask.dataset.editIndex = index
+      deleteTask.dataset.button = "delete";
+      deleteTask.dataset.deleteIndex = index;
+      taskActionsContainer.addEventListener('click', e => {
+        if (e.target.dataset.button === 'delete') {
+          let task = projects[taskButton.dataset.projectIndex].tasks[e.target.dataset.deleteIndex];
+          projects[taskButton.dataset.projectIndex].tasks.splice(task, 1);
+          saveToLocalStorage();
+          showTasksToContainer();
+        }
+
+        return;
+      });
     })
   }
 
