@@ -37,7 +37,7 @@ const editProject = (e) => {
 const deleteProject = (e) => {
   projects.splice(projects.indexOf(e.target.parentElement.dataset.projectIndex, -1), 1)
   saveToLocalStorage();
-  newProjectDOM.showProjectsToContainer();
+  window.location.reload();
 }
 
 const checkBoxToggle = (e) => {
