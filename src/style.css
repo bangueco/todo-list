@@ -110,6 +110,12 @@ body {
   text-align: center;
 }
 
+.wrapper > .tasks-container > .tasks__container > .task > .taskActionsContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
 .project {
   display: flex;
   justify-content: space-between;

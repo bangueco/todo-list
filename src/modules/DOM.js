@@ -188,6 +188,7 @@ const newTaskDom = (() => {
     const taskStatus = document.createElement('div');
     const taskName = document.createElement('div');
     const taskDueDate = document.createElement('div');
+    const taskAction = document.createElement('div');
 
     rowNamesContainer.classList.add('row_label');
 
@@ -195,11 +196,13 @@ const newTaskDom = (() => {
     taskStatus.textContent = "Status";
     taskName.textContent = "Task Name";
     taskDueDate.textContent = "Due Date";
+    taskAction.textContent = "Action";
 
     // Appending elements
     rowNamesContainer.appendChild(taskStatus);
     rowNamesContainer.appendChild(taskName);
     rowNamesContainer.appendChild(taskDueDate);
+    rowNamesContainer.appendChild(taskAction);
     _tasksContainer.appendChild(rowNamesContainer);
   }
 
@@ -225,10 +228,26 @@ const newTaskDom = (() => {
       taskDueDateContainer.appendChild(dueDate);
       dueDate.classList.add('dueDate');
       dueDate.textContent = proj.dueDate;
+      const taskActionsContainer = document.createElement('div');
+      const editTask = document.createElement('button');
+      const deleteTask = document.createElement('button');
+
+      editTask.textContent = "Edit";
+      deleteTask.textContent = "Delete";
+      taskActionsContainer.appendChild(editTask);
+      taskActionsContainer.appendChild(deleteTask);
+
+      // Assigning classes on buttons and container
+      taskActionsContainer.classList.add('taskActionsContainer');
+      editTask.classList.add('btn');
+      editTask.classList.add('btn-info');
+      deleteTask.classList.add('btn');
+      deleteTask.classList.add('btn-danger');
 
       div.appendChild(taskStatusContainer);
       div.appendChild(taskNameContainer);
       div.appendChild(taskDueDateContainer);
+      div.appendChild(taskActionsContainer);
       _tasksContainer.appendChild(div);
     })
   }
