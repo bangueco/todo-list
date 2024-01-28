@@ -264,8 +264,8 @@ const newTaskDom = (() => {
       deleteTask.dataset.deleteIndex = index;
       taskActionsContainer.addEventListener('click', e => {
         if (e.target.dataset.button === 'delete') {
-          let task = projects[taskButton.dataset.projectIndex].tasks[e.target.dataset.deleteIndex];
-          projects[taskButton.dataset.projectIndex].tasks.splice(task, 1);
+          let task = projects[taskButton.dataset.projectIndex].tasks;
+          task.splice(e.target.dataset.deleteIndex, 1);
           saveToLocalStorage();
           showTasksToContainer();
         }
